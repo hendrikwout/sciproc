@@ -1,0 +1,22 @@
+Format: 1.8
+Date: Sun, 10 Nov 2013 15:15:38 +0100
+Source: sciproc
+Binary: python-sciproc
+Architecture: all
+Version: 0.7.4-1
+Distribution: unstable
+Urgency: low
+Maintainer: H. Wouters <hendrikwout@gmail.com>
+Changed-By: H. Wouters <hendrikwout@gmail.com>
+Description: 
+ python-sciproc - Process scientific multidimensional data.
+Changes: 
+ sciproc (0.7.4-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.6.0+git
+Checksums-Sha1: 
+ 0d95a5b4b47d0c14a4886481cb1f6efca7437162 11646 python-sciproc_0.7.4-1_all.deb
+Checksums-Sha256: 
+ 4c4c06748b9af2feda2dc5b269234ed84fa95588b06010be7c64469b20351ff2 11646 python-sciproc_0.7.4-1_all.deb
+Files: 
+ 640954ca5971788664b90c2bff4de379 11646 python optional python-sciproc_0.7.4-1_all.deb

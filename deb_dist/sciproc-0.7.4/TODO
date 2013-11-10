@@ -1,0 +1,6 @@
+
+- make a default for vardim
+- is it possible to always start from a objects array for ncdfextra
+- at this moment, the script is quite slow of the matrices are large. It still needs optimization
+- organize files to make it conform to 'python standards'
+- diurnal average #(e.g. see procterra2.py) -> ok
