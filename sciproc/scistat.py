@@ -74,6 +74,24 @@ def anomaly(x):
 
 
 
+def avgglide(x,avlen):
+    xout = np.zeros_like(x)
+    xwork = np.zeros_like(x)
+    if np.mod(avlen,2) == 0:
+        xwork[-1] = np.nan
+        xwork[:-1] = (x[1:] + x[:-1])/2.
+    else:
+        xwork = x
+    lenxout = xout.shape[0]
+    avlen2 = int(avlen/2.)
+    xout[:avlen2] = np.nan
+    xout[-avlen2:] = np.nan
+    for i in range(0,avlen,1):
+        xout[avlen2:(-avlen+avlen2)] = xout[avlen2:(-avlen+avlen2)] + xwork[i:(-avlen+i)]
+    return xout/avlen
 
-# select data
+    # # the slow way
+    # for j in range(len(x)):
+    #     xout[j] = np.mean(x[max(0,(j-int(avlen/2.))):min((j+int(avlen/2.)),lenxout)],axis=0)
+    # return (xout,)
 

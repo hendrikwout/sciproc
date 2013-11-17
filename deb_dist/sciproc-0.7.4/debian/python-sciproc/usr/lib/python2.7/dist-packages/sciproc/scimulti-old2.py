@@ -1,1 +1,0 @@
-../../../../share/pyshared/sciproc/scimulti-old2.py

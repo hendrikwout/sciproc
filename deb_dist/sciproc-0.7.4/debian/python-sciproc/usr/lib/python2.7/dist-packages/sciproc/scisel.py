@@ -1,1 +1,0 @@
-../../../../share/pyshared/sciproc/scisel.py

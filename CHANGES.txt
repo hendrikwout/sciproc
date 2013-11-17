@@ -1,5 +1,10 @@
 
 
+
+VERSION 0.7.5: sub revision - zo nov 17 09:19:26 CET 2013
+
+Add gliding average function
+
 VERSION 0.7.2: sub revision - zo nov 10 15:14:21 CET 2013
 
 Adding INSTALL file

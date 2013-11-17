@@ -3,16 +3,20 @@ sciproc
 ===========
 
 
-Sciproc in experimental stage provides tools to select, edit, convert scientific (observed, model-generated)
-data. It needs Numpy. It's very experimental, as some functions aren't tested or only tested in 'idealised
-cases', so please be careful.  Please let me know if you would like to contribute. Currently selection
-from 1D data by coordinates or certain timestep and applying a function repeatedly on a
-multidimensional matrix is implemented. However selecting, interpolating and editing procedures for
-multidimensional data is planned in the near future.  You might want to use it if you have have any
-observational data and you want to select a period, make a selection with a certain timestep or make
-an interpolation. The aim is to make an addition to the cdo climate data operators with python power
-(see also ncdftools). It should be working with normal numpy data. However, if you want to process
-netcdf-files, we recommend to use the ncdftools interface which acutally uses sciproc. Typical usage
+Sciproc in experimental stage provides tools to select, edit, convert
+scientific (observed, model-generated) data. It needs Numpy. It's very
+experimental, as some functions aren't tested or only tested in 'idealised
+cases', so please be careful.  Please let me know if you would like to
+contribute. Currently selection from 1D data by coordinates or certain timestep
+and applying a function repeatedly on a multidimensional matrix is implemented.
+However selecting, interpolating and editing procedures for multidimensional
+data is planned in the near future.  You might want to use it if you have have
+any observational data and you want to select a period, make a selection with a
+certain timestep or make an interpolation. The aim is to make an addition to
+the cdo climate data operators with python power (see also pynacolada). It
+should be working with normal numpy data. However, if you want to process
+netcdf-files, we recommend to use the pynacolada interface which acutally uses
+sciproc. Typical usage
 often looks like this::
 
     #!/usr/bin/env python

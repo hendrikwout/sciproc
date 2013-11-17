@@ -72,7 +72,7 @@ setup(
     url='http://www.nowebsite.com',
     license='LICENSE.txt',
     description='Process scientific multidimensional data.',
-    long_description=open('README.txt').read(),
+    long_description=open('README.md').read(),
 )
 
 end_input
