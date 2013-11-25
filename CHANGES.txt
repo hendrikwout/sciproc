@@ -1,6 +1,21 @@
 
 
 
+VERSION 0.7.8: sub revision - ma nov 25 09:31:29 CET 2013
+
+
+
+
+VERSION 0.7.7: sub revision - ma nov 25 09:30:35 CET 2013
+
+- make steinalp work with arrays analyzed in parallel. The user now needs to specify the number of factors that are changed in the subsequent datasets.
+
+
+VERSION 0.7.6: sub revision - zo nov 24 19:15:35 CET 2013
+
+- Adding data analysis procedure steinalp() from Stein and Alpert (1993), Factor Seperation in Numerical Simulations (JAS). (example will follow)
+- make it installable with pypi-install
+
 VERSION 0.7.5: sub revision - zo nov 17 09:19:26 CET 2013
 
 Add gliding average function

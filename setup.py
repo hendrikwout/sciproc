@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='sciproc',
-    version='0.7.5',
+    version='0.7.8',
     author='H. Wouters',
     author_email='hendrikwout@gmail.com',
     packages=['sciproc'],
