@@ -16,25 +16,29 @@ def steinalp(f,numfac):
     '''
 
     #a few preparations
+    #print f
     frav = np.array(f)
     fshp = frav.shape #np.shape(frav)[:numfac]
     nmshape = 2**numfac
-    lshf = len(numfac)
+    lshf = numfac
+    print 'frav.shape',frav.shape
     
+    ishape = 0
     while nmshape > 1:
-        if frav.shape[0] > 2:
-            frav.shape = frav.shape[0]/2+frac.shape[1:]
-        else:
-            frav.shape = frav.shape[1:]
-        nmshape = nmshape/2
+        nmshape = nmshape / frav.shape[ishape]
+        ishape = ishape + 1
+    newshape = [nmshape] 
+    if len(frav.shape) > ishape:
+        newshape = newshape +list(frav.shape[ishape:])
 
     fsep = np.zeros_like(frav)
     
+    #print (frav)
     # here we go...
-    fsep[0] = frav[0][:]
+    fsep[0] = np.array(frav[0])
     for posfsep in range(1,len(fsep)):
     
-        fsep[posfsep] = frav[posfsep][:]
+        fsep[posfsep] = np.array(frav[posfsep])
         idxs = []
         posfseptmp = int(posfsep)
     
@@ -95,8 +99,12 @@ def steinalp(f,numfac):
         
     fsep.shape = fshp
     if type(f).__name__ == 'list':
+        # print 'fsep.shape',fsep.shape
+        # print 'list'
         return list(fsep)
     elif type(f).__name__ == 'tuple':
+        # print 'fsep.shape',fsep.shape
+        # print 'tuple'
         return tuple(fsep)
     else:
         # just array?
