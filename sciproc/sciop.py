@@ -5,23 +5,18 @@ import math as mt
 # def getidx(idxs,numfac):
 
 def steinalp(f,numfac):
-    '''  factor seperation procedure following Stein and Alpert (1993), Factor
-    Seperation in Numerical Simulations (JAS). Example will follow.
+    '''  purpose: factor seperation procedure following Stein and Alpert (1993), Factor
+    Seperation in Numerical Simulations (JAS). Example will be added soon (2013-11-25).
 
     f: data set with factors
-    numfac: amount of factors investigated
-
-    f
-    
+    numfac: amount of factors investigated -> The function f needs to have 2**numfac elements.
     '''
 
     #a few preparations
-    #print f
     frav = np.array(f)
     fshp = frav.shape #np.shape(frav)[:numfac]
     nmshape = 2**numfac
     lshf = numfac
-    print 'frav.shape',frav.shape
     
     ishape = 0
     while nmshape > 1:
@@ -31,9 +26,9 @@ def steinalp(f,numfac):
     if len(frav.shape) > ishape:
         newshape = newshape +list(frav.shape[ishape:])
 
-    fsep = np.zeros_like(frav)
+    frav.shape = newshape
+    fsep = np.zeros(newshape)
     
-    #print (frav)
     # here we go...
     fsep[0] = np.array(frav[0])
     for posfsep in range(1,len(fsep)):
@@ -56,65 +51,48 @@ def steinalp(f,numfac):
         # a loop over the different kind of combinations :
         # 0 1 2 3...m -- ... l
         # l l l l   ...      l
-#        print 'idxs', idxs
         for m in range(1,l):
             # determine the number of possible combinations of the current kind
             numcomb = mt.factorial(l)/mt.factorial(m)/mt.factorial(l-m)
-    
-            # print 'm l',m,l
-            # print 'posfsep', posfsep
-            # print 'numcombb',numcomb
     
             # now we make the combinations of the indices
             pos = range(m) # start position (e.g. (1,2,3,4)
             if pos != []:
                 for inumcomb in range(numcomb):
-    #                print('pos',pos)
                 
                     curidxs = []
                     for ipos,epos in enumerate(pos):
                         # the current matrix index
                         curidxs.append(idxs[epos])
     
-   #                  print (curidxs,'curidxs')
                     posf = 0
                     for i in range(lshf):
                         if i in curidxs:
-   #                         print 'i curidxs',i,curidxs,(lshf-i-1)
                             posf = posf + 2**(lshf-i-1)
                     
-   #                 print ('posf',posf,np.float((-1)**(l-m) *frav[posf]))
                     fsep[posfsep] = fsep[posfsep] +  (-1)**(l-m) * frav[posf]
-   #                 print('posone',pos)
                     pos[-1] = pos[-1] +1 
                     for ipos,epos in reversed(list(enumerate((pos)))):
-   #                     print ipos,epos,l
                         if (ipos >= 1) and (epos == l):
                             pos[ipos - 1] = pos[ipos -1] + 1
                             pos[ipos] = 0 #pos[ipos] + 1
-#                    print('postwo',pos)
         fsep[posfsep] = fsep[posfsep] + (-1)**l * frav[0]
-#        print ('lposf',0,np.float(frav[0]))
-        #print 'posfsep fsep',posfsep,fsep[posfsep]
         
     fsep.shape = fshp
     if type(f).__name__ == 'list':
-        # print 'fsep.shape',fsep.shape
-        # print 'list'
         return list(fsep)
     elif type(f).__name__ == 'tuple':
-        # print 'fsep.shape',fsep.shape
-        # print 'tuple'
         return tuple(fsep)
     else:
         # just array?
         return fsep
 
 def tsfill(valin,dtin,dtout):
-    # purpose: regrid timeseries... fill missing timesteps in a timeseries with nan values, or leave out unwanted timesteps
-    # valin: time series values
-    # dtin: time steps of the timeseries
-    # dtout: desired output timesteps
+    ''' purpose: regrid timeseries... fill missing timesteps in a timeseries with nan values, or leave out unwanted timesteps
+    valin: time series values
+    dtin: time steps of the timeseries
+    dtout: desired output timesteps
+    '''
 
     valout = zeros(len(dtout))*nan
     lendtin = len(dtin)

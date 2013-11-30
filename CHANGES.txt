@@ -1,6 +1,17 @@
 
 
 
+VERSION 0.7.12: sub revision - za nov 30 21:57:07 CET 2013
+
+
+
+
+VERSION 0.7.11: sub revision - za nov 30 21:56:36 CET 2013
+
+set correct shapes for i/o in steinalp
+remove print statements from steinalp()
+
+
 VERSION 0.7.9: sub revision - di nov 26 14:30:06 CET 2013
 
 major fixes in steinalp
